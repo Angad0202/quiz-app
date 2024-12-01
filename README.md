@@ -10,15 +10,19 @@ pip install -r requirements.txt
 ## Configure the database
 The application uses SQLite by default, which requires no additional setup. However, if you want to use a different database, update the DATABASES setting in quiz_project/settings.py
 ```
-python manage.py makemigrations
-python manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 ## Create a superuser(Optional):
 If you want to access the Django admin interface to add questions, create a superuser account:
 ```
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 ```
 ## Access the Application
+```
+python3 manage.py runserver
+```
+Then. 
 Open your web browser and navigate to:
 ```
 http://127.0.0.1:8000/
