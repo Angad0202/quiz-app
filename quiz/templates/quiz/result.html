@@ -1,0 +1,28 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header {% if is_correct %}bg-success{% else %}bg-danger{% endif %} text-white">
+                <h2 class="mb-0">{% if is_correct %}Correct!{% else %}Incorrect{% endif %}</h2>
+            </div>
+            <div class="card-body">
+                <h4 class="mb-3">{{ question.question_text }}</h4>
+                
+                <p class="mb-2">Your answer: <strong>{{ selected_answer }}</strong></p>
+                {% if not is_correct %}
+                    <p class="mb-4">Correct answer: <strong>{{ correct_answer }}</strong></p>
+                {% endif %}
+                
+                <div class="text-center mt-4">
+                    {% if not is_last_question %}
+                        <a href="{% url 'quiz' %}" class="btn btn-primary">Answer More</a>
+                    {% endif %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">End Quiz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

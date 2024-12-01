@@ -1,0 +1,44 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Dashboard</h2>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Questions</h5>
+                                <p class="display-4">{{ total_attempts }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Correct Answers</h5>
+                                <p class="display-4">{{ correct_answers }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Score</h5>
+                                <p class="display-4">{{ percentage }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{% url 'quiz' %}" class="btn btn-primary btn-lg">Take Quiz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

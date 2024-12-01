@@ -1,0 +1,47 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Quiz Question</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="question_id" value="{{ question.id }}">
+                    
+                    <h4 class="mb-4">{{ question.question_text }}</h4>
+                    
+                    <div class="list-group">
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="answer" value="{{ question.option_1 }}" required>
+                            {{ question.option_1 }}
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="answer" value="{{ question.option_2 }}">
+                            {{ question.option_2 }}
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="answer" value="{{ question.option_3 }}">
+                            {{ question.option_3 }}
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="answer" value="{{ question.option_4 }}">
+                            {{ question.option_4 }}
+                        </label>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary">Submit Answer</button>
+                        {% if not is_last_question %}
+                            <a href="{% url 'dashboard' %}" class="btn btn-secondary">End Quiz</a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
